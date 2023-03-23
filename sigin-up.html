@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/style.css"/>
+  <script src= "js/Validator.js"></script>
 </head>
 
 <body>
@@ -23,40 +24,44 @@
               <div class="card" style="border-radius: 15px;">
                 <div class="card-body p-5">
                   <h2 class="text-uppercase text-center mb-5">Hệ thống khảo sát Đại học Thuỷ lợi</h2>
-                  <form>
-                    <div class="form-outline mb-4">
+                  <form id="form-1" method="POST" >
+                    <div class="form-group mb-4">
                       <div class="txt_form-label">
                         <label class="form-label" for="form3Example1cg">Name</label> 
                         <p>*</p>
                       </div>
-                      <input type="text" id="form3Example1cg" placeholder="Ho ten" class="form-control form-control-lg" />
+                      <input type="text" id="fullname" placeholder="Ho ten" class="form-control form-control-lg" />
+                      <span class="form-message"></span>
                     </div>
-                    <div class="form-outline mb-4">
+                    <div class="form-group mb-4">
                       <div class="txt_form-label">
                       <label class="form-label" for="form3Example3cg">Email address</label>
                       <p>*</p>
                       </div>
-                      <input type="email" id="form3Example3cg" placeholder="emaildatontai@gmail.com" class="form-control form-control-lg" />
+                      <input type="email" id="email" placeholder="emaildatontai@gmail.com" class="form-control form-control-lg" />
+                      <span class="form-message"></span>
                     </div>
-                    <div class="form-outline mb-4">
+                    <div class="form-group mb-4">
                       <div class="txt_form-label">
                         <label class="form-label" for="form3Example4cg">Password</label>
                         <p>*</p>
                       </div>
-                      <input type="password" id="form3Example4cg" placeholder="********" class="form-control form-control-lg" />
+                      <input type="password" id="password" placeholder="********" class="form-control form-control-lg" />
+                      <span class="form-message"></span>
                     </div>
-                    <div class="form-outline mb-4">
+                    <div class="form-group mb-4">
                       <div class="txt_form-label">
                       <label class="form-label" for="form3Example4cdg">Confirm your password</label>
                       <p>*</p>
                       </div>
-                      <input type="password" id="form3Example4cdg" placeholder="********" class="form-control form-control-lg" />
+                      <input type="password" id="password_confirmation" placeholder="********" class="form-control form-control-lg" />
+                      <span class="form-message"></span>
                     </div>
                     <div class="d-flex justify-content-center">
                       <button type="button"
                               class="btn btn-block btn-lg gradient-custom-4 text-body">Đăng kí</button>
                     </div>
-                    <p class="text-center text-muted mt-5 mb-0">Have an account? <a href="#!" class="fw-bold text-body"><u>Login</u></a></p>
+                    <p class="text-center text-muted mt-5 mb-0">Have an account? <a href="login.html" class="fw-bold text-body"><u>Login</u></a></p>
                   </form>
                 </div>
               </div>
@@ -66,6 +71,27 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      Validator({
+          form: '#form-1',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+              Validator.isRequired('#fullname' ,'Nhập vào họ tên đầy đủ'),
+              Validator.isEmail('#email'),
+              Validator.minLength('#password', 6),
+              Validator.isRequired('#password_confirmation'),
+              Validator.isConfirmed('#password_confirmation', function () {
+                  return document.querySelector('#form-1 #password').value;
+              }, 'Mật khẩu nhập lại không chính xác')
+          ],
+          onSubmit: function (data) {
+              console.log(data);
+          }
+      });
+  });
+</script>
 </body>
 
 </html>
