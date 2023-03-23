@@ -1,0 +1,5 @@
+@include('blocks.head')
+@yield('content')
+@include('blocks.footer')
+@include('blocks.end')
+@yield('customJS')

@@ -173,15 +173,15 @@ function confim(){
     }
 }
 
-function confimLogin(){
-    var email=document.getElementById("email").value;
-    var password=document.getElementById("password").value;
-    var x = document.getElementById("snackbar");
-    if(email !="123@gmail.com"|| password !="123456"){
-        x.className = "show";
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-        return false;
-    }else{
+// function confimLogin(){
+//     var email=document.getElementById("email").value;
+//     var password=document.getElementById("password").value;
+//     var x = document.getElementById("snackbar");
+//     if(email !="123@gmail.com"|| password !="123456"){
+//         x.className = "show";
+//         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+//         return false;
+//     }else{
 
-    }
-}
+//     }
+// }
