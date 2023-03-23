@@ -185,3 +185,9 @@ function confimLogin(){
 
     }
 }
+
+function surveyDetail(){
+    var x = document.getElementById("survey-snackbar");
+    x.className = "show";
+    return false;
+}
