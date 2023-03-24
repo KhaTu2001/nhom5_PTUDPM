@@ -45,4 +45,7 @@ class AuthService
         ]);
         return true;
     }
+    public function create($data){
+        return User::create($data);
+    }
 }
