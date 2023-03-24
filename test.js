@@ -192,35 +192,23 @@ function surveyDetail(){
     return false;
 }
 
-let optionCount = 1;
-
-function addMoreOption() {
-    var div = document.createElement("div");
-    div.setAttribute("class", "del-option")
-    div.innerHTML = `<div class="chose" style="margin-top: 10px;"><p><label for="" class="survey-label"><input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text" placeholder="Add your option"</label></p></div><div style="margin-left: 690px; margin-top: -30px;"><button type="button" onclick="deleteCurrentOption()" id="delete-current-option"><i class="fa-regular fa-circle-xmark"></i></button></div>`;
-    document.getElementById(`more-option${optionCount}`).appendChild(div);
-    optionCount++;
-}
-
-
-function deleteCurrentOption(){
-    var elements = document.getElementsByClassName("del-option");
-    var lastElement = elements[elements.length - 1];
-    lastElement.parentNode.removeChild(lastElement);
-}
-
 let questionCount = 1;
+let optionCount = 1;
 
 function addMoreQuestion(){
     var div = document.createElement("div");
     div.setAttribute("class", "del-question")
-    div.innerHTML = `<div class="spacer"></div><div><div class="quest-num"><h3 style="color: white; padding-top: 10px;">Câu hỏi ${questionCount + 1}</h3> </div><form action="" id="survey-form"><div id="form-option${questionCount}" class="form-group1"><div style="background-color: aqua; border-radius: 10px; font-weight: 600;"><label for="" class="add-question"><input class="name-question-input" type="text" placeholder="  Add your question"></label></div><div class="d-flex flex-column align-items-end"><div class="d-flex flex-column" style="margin-right: -70px; margin-top: -70px;"><button type="button" onclick="addMoreQuestion()" style="height: 35px; width: 35px; border-style: hidden; border-top-left-radius: 10px; border-top-right-radius: 10px;"><i class="fa-regular fa-square-plus"></i></button><button type="button" onclick="deleteCurrentQuestion()" style="height: 35px; width: 35px; border-style: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"><i class="fa-regular fa-circle-xmark"></i></button></div></div><div class="spacer"></div><h4 style="padding-left: 5px;">Options</h4><div class="chose"><p><label for="" class="survey-label"><input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text" placeholder="Add your option"></label></p></div><div class="chose"><p> <label for="" class="survey-label"><input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text" placeholder="Add your option"></label></p></div><div id="more-option${optionCount}"></div><button type="button" class="add-option-btn" onclick="addMoreOption()"><i class="fa-regular fa-square-plus" style="font-size: initial;"></i><p style="padding-left: 2px;">Add other option</p></button></div></form></div>`;
+    div.innerHTML = `<div class="spacer"></div><div><div class="quest-num"><h3 style="color: white; padding-top: 10px;">Câu hỏi ${questionCount + 1}</h3> </div><form action="" id="survey-form-${questionCount}"><div id="form-option${questionCount}" class="form-group1"><div style="background-color: aqua; border-radius: 10px; font-weight: 600;"><label for="" class="add-question"><input class="name-question-input" type="text" placeholder="  Add your question"></label></div><div class="d-flex flex-column align-items-end"><div class="d-flex flex-column" style="margin-right: -70px; margin-top: -70px;"><button type="button" onclick="addMoreQuestion()" style="height: 35px; width: 35px; border-style: hidden; border-top-left-radius: 10px; border-top-right-radius: 10px;"><i class="fa-regular fa-square-plus"></i></button><button type="button" onclick="deleteCurrentQuestion()" style="height: 35px; width: 35px; border-style: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"><i class="fa-regular fa-circle-xmark"></i></button></div></div><div class="spacer"></div><h4 style="padding-left: 5px;">Options</h4><div class="chose"><p><label for="" class="survey-label"><input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text" placeholder="Add your option"></label></p></div><div class="chose"><p> <label for="" class="survey-label"><input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text" placeholder="Add your option"></label></p></div><div id="more-option${optionCount}"></div><button type="button" class="add-option-btn" onclick="addMoreOption()"><i class="fa-regular fa-square-plus" style="font-size: initial;"></i><p style="padding-left: 2px;">Add other option</p></button></div></form></div>`;
     document.getElementById("more-question").appendChild(div);
     questionCount++;
 }
 
-function deleteCurrentQuestion(){
-    var elements = document.getElementsByClassName("del-question");
-    var lastElement = elements[elements.length - 1];
-    lastElement.parentNode.removeChild(lastElement);
+function addMoreOption(questionCount) {
+    var formId = `survey-form-${questionCount}`;
+    var div = document.createElement("div");
+    div.setAttribute("class", "del-option")
+    div.innerHTML = `<div class="chose" style="margin-top: 10px;"><p><label for="" class="survey-label"><input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text" placeholder="Add your option"</label></p></div><div style="margin-left: 690px; margin-top: -30px;"><button type="button" onclick="deleteCurrentOption()" id="delete-current-option"><i class="fa-regular fa-circle-xmark"></i></button></div>`;
+    document.getElementById(`${formId}`).querySelector(`#more-option`).appendChild(div);
 }
+
+
