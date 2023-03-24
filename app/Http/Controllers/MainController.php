@@ -16,13 +16,14 @@ class MainController extends Controller
         $this->surveyService = $surveyService;
     }
     
-
+    // trang home
     public function index()
     {
         return view('users.home', [
             'title' => 'Trang chủ'
         ]);
     }
+    // trang hien form tim kiem
     public function search(){
         {
             return view('users.search', [
@@ -30,6 +31,7 @@ class MainController extends Controller
             ]);
         }
     }
+    // hien danh sach tim kiem
     public function show(Request $request){
         $u_id = Auth::user()->id;
         return view('users.forms.list', [

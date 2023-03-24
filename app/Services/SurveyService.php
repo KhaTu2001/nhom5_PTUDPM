@@ -10,9 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 class SurveyService
 {
-    //lay danh sach phieu khao sat da tham gia
-    public function getSurvey($u_id){
-        return  Survey::with('form')->where('user_id', $u_id)->get();
-
+    //lay danh sach form khao sat da tham gia
+    public function getForm($u_id){
+        return Form::join('surveys','forms.id','surveys.form_id')
+            ->join('users','forms.user_id','users.id')
+                ->where('surveys.user_id', $u_id)->get();
+        // dd($return);
+    }
+    // lay danh sach phieu khao sat da tao
+    public function getSheet($u_id){
+        return Form::where('user_id', $u_id)->get();    
     }
 }

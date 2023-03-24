@@ -14,28 +14,13 @@ class SurveyController extends Controller
     public function __construct(SurveyService $surveyService){
         $this->surveyService = $surveyService;
     }
-    //danh sach cac form khao sat da tham gia
+    //danh sach cac form khao sat da tham gia va da tao
     public function index(){
         $u_id = Auth::user()->id;
         return view('users.surveys.index',[
         'title'=> 'Danh sách các khảo sát của bạn',
-        'surveys' => $this->surveyService->getSurvey($u_id)
+        'forms' => $this->surveyService->getForm($u_id),
+        'sheets' => $this->surveyService->getSheet($u_id)
     ]);
     }
-    // //tham gia khảo sát
-    // public function create(Survey $survey){
-    //     return view('users.surveys.sheet',[
-    //         'title' => 'Phiếu khảo sát',
-    //         'form' => $this->surveyService->form($survey->form_id),
-    //         'questions' =>$this->surveyService->questions($survey->form_id),
-    //     ]);
-    // }
-    // //hien form khao sat da tham gia 
-    // public function show(Survey $survey){
-    //     return view('users.surveys.sheet',[
-    //         'title' => 'Phiếu khảo sát',
-    //         'form' => $this->surveyService->form($survey->form_id),
-    //         'questions' =>$this->surveyService->questions($survey->form_id),
-    //     ]);
-    // }
 }

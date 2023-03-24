@@ -14,7 +14,7 @@
             </div>
             <div class="profile_btn">
                 <i class="fa-regular fa-user"></i>
-                <strong>
+                <strong style="text-transform: uppercase">
                     <a href="#">
                         {{Auth::user()->name}}
                     </a>

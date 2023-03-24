@@ -1,6 +1,6 @@
     .sign-up__container {
         height: 100vh;
-        background-image: url("/img/bg.png");
+        background-image: url("../img/img_background.png");
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
         background-size: cover;
@@ -90,12 +90,11 @@
     .profile_btn{
         display: flex;
         height: 40px;
-        width: 136px;
+        width: 204px;
         border-radius: 16px;
         background-color: #fff;
         align-items: center;
-        justify-content: space-evenly;
-        text-transform: uppercase;
+        justify-content: center;
     }
     
     .form_active-box{
@@ -290,7 +289,7 @@
     
     
     #snackbar {
-        /* visibility: hidden; */
+        visibility: hidden;
         min-width: 250px;
         margin-left: -125px;
         background-color: #333;
@@ -488,28 +487,43 @@
         border: none;
     }
     .results_box{
-        height: 400px;
+        height: max-content;
         background-color: rgba(206, 106, 106, 1);
         border-radius: 24px;
         margin-top: 254px;
         padding: 32px;
-        overflow-y: scroll;
+    
     }
     .results_box h2{
         display: flex;
-        justify-content: start;
+        justify-content: center;
+    }
+    .results_box .container{
+        max-height: 500px;
+    }
+    .results_box_bottom{
+        width: 100%;
+        height: 64px;
     }
     .results_content{
         height: max-content;
         background-color: rgba(255, 223, 200, 1);
         margin-top: 16px;
         border-radius: 16px;
+    
+        
         
     }
-    .results_content h4{
-        padding: 16px;
+    .results_content a{
         color: rgba(244, 103, 0, 1);
+        text-decoration: none;
+        padding: 16px;
+    
     }
+    .results_content :hover{
+        color: #0da9ed;
+    }
+    
     .bottom_search{
         height: 100px;
     }
@@ -535,4 +549,3 @@
         z-index: 1000;
     
     }
-    
