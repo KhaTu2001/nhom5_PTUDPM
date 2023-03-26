@@ -122,6 +122,14 @@ html {
     visibility: hidden;
 }
 
+#another-option-btn.geton{
+    visibility: visible;
+}
+
+#another-option-btn.getoff{
+    visibility: hidden;
+}
+
 #survey-snackbar{
     visibility: hidden;
 }
@@ -488,4 +496,10 @@ form{
 
 #delete-question-btn{
     height: 35px; width: 35px; border-style: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
+}
+
+#another-option-btn{
+    margin-left: 4px;
+    margin-top: 9px;
+    text-decoration: none;
 }

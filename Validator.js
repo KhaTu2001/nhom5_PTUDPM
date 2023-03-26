@@ -191,6 +191,10 @@ function Validator(options) {
     x.className = "show";
     return false;
   }
+
+  function offOtherOption(){
+    
+  }
   
   
   
@@ -282,8 +286,37 @@ function Validator(options) {
     }
     deleteOptionId++;
   }
+
+  function addAnotherOption(defaultId) {
+    var x = document.getElementById("another-option-btn");
+    x.setAttribute("class", "getoff");
+    var div = document.createElement("div");
+    var questionDiv = document.getElementById(`question-${defaultId}`);
+  
+    div.setAttribute("class", `del-option`);
+    div.innerHTML = `<div class="chose">
+                      <p>
+                        <label for="" class="survey-label">
+                        <div style="display: flex;margin-left: 10px;">
+                        <input type="radio" name="source" class="inputRadio">
+                          <div style="color: #787878;">Khác...</div>
+                        </div>
+                        </label>
+                      </p>
+                      <div style="margin-left: 695px; margin-top: -35px; "><button type="button" style=" border-style: none; background-color: white;margin-top: 10px;" onclick="deleteCurrentOption(${deleteOptionId})"
+                        id="delete-current-option-${deleteOptionId}"><i class="fa-regular fa-circle-xmark"></i></button></div>
+                    </div>`;
+    if (questionDiv) {
+      questionDiv.appendChild(div);
+    } else {
+      document.getElementById(`more-option`).appendChild(div);
+    }
+    deleteOptionId++;
+  }
   
   function deleteCurrentOption(deleteOptionId) {
     var deleteOption = document.getElementById(`delete-current-option-${deleteOptionId}`);
     deleteOption.parentElement.parentElement.parentElement.remove();
+    var x = document.getElementById("another-option-btn");
+    x.setAttribute("class", "geton");
   }
