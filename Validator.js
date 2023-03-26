@@ -191,10 +191,6 @@ function Validator(options) {
     x.className = "show";
     return false;
   }
-
-  function offOtherOption(){
-    
-  }
   
   
   
@@ -205,6 +201,7 @@ function Validator(options) {
   
   function addMoreQuestion() {
     var div = document.createElement("div");
+  
     div.setAttribute("class", "del-question");
     div.innerHTML = `<div class="spacer"></div>
                     <div>
@@ -245,13 +242,18 @@ function Validator(options) {
                             </p>
                           </div>
                           <div id="question-${defaultId}"></div>
-                          <button type="button" class="add-option-btn" onclick="addMoreOption(${defaultId})"><i class="fa-regular fa-square-plus"
-                              style="font-size: initial;"></i>
-                            <p style="padding-left: 2px;">Add other option</p>
-                          </button>
+                          <div id="another-option-${defaultId}"></div>
+                          <div class="d-flex">
+                            <button type="button" class="add-option-btn" onclick="addMoreOption(${defaultId})"><i class="fa-regular fa-square-plus"
+                                style="font-size: initial;"></i>
+                              <p style="padding-left: 2px;">Add other option</p>
+                            </button>
+                            <a style="color: blue;margin-left: 4px;margin-top: 9px;text-decoration: none;" id="another-option-btn-${defaultId}" onclick="addAnotherOption(${defaultId})">or Lựa chọn khác</a>
+                          </div>
                         </div>
                       </form>
                     </div>`;
+  
     document.getElementById("more-question").appendChild(div);
     questionCount++;
     defaultId++;
@@ -276,36 +278,14 @@ function Validator(options) {
                             placeholder="Add your option">
                         </label>
                       </p>
-                      <div style="margin-left: 695px; margin-top: -35px; "><button type="button" style=" border-style: none; background-color: white;" onclick="deleteCurrentOption(${deleteOptionId})"
-                        id="delete-current-option-${deleteOptionId}"><i class="fa-regular fa-circle-xmark"></i></button></div>
+                      <div style="margin-left: 695px; margin-top: -35px; ">
+                        <button type="button" style=" border-style: none; background-color: white;" onclick="deleteCurrentOption(${deleteOptionId})"
+                            id="delete-current-option-${deleteOptionId}">
+                          <i class="fa-regular fa-circle-xmark"></i>
+                        </button>
+                      </div>
                     </div>`;
-    if (questionDiv) {
-      questionDiv.appendChild(div);
-    } else {
-      document.getElementById(`more-option`).appendChild(div);
-    }
-    deleteOptionId++;
-  }
-
-  function addAnotherOption(defaultId) {
-    var x = document.getElementById("another-option-btn");
-    x.setAttribute("class", "getoff");
-    var div = document.createElement("div");
-    var questionDiv = document.getElementById(`question-${defaultId}`);
   
-    div.setAttribute("class", `del-option`);
-    div.innerHTML = `<div class="chose">
-                      <p>
-                        <label for="" class="survey-label">
-                        <div style="display: flex;margin-left: 10px;">
-                        <input type="radio" name="source" class="inputRadio">
-                          <div style="color: #787878;">Khác...</div>
-                        </div>
-                        </label>
-                      </p>
-                      <div style="margin-left: 695px; margin-top: -35px; "><button type="button" style=" border-style: none; background-color: white;margin-top: 10px;" onclick="deleteCurrentOption(${deleteOptionId})"
-                        id="delete-current-option-${deleteOptionId}"><i class="fa-regular fa-circle-xmark"></i></button></div>
-                    </div>`;
     if (questionDiv) {
       questionDiv.appendChild(div);
     } else {
@@ -317,6 +297,48 @@ function Validator(options) {
   function deleteCurrentOption(deleteOptionId) {
     var deleteOption = document.getElementById(`delete-current-option-${deleteOptionId}`);
     deleteOption.parentElement.parentElement.parentElement.remove();
-    var x = document.getElementById("another-option-btn");
-    x.setAttribute("class", "geton");
+  }
+  
+  function addAnotherOption(defaultId) {
+    var div = document.createElement("div");
+    var otherOptionDiv = document.getElementById(`another-option-${defaultId}`);
+    var otherOptionBtnDiv = document.getElementById(`another-option-btn-${defaultId}`);
+  
+    div.setAttribute("class", `del-option`);
+    div.innerHTML = `<div class="chose">
+                      <p>
+                        <label for="" class="survey-label">
+                        <div style="display: flex;margin-left: 10px;">
+                          <input type="radio" name="source" class="inputRadio">
+                          <div style="color: #787878;">Khác...</div>
+                        </div>
+                        </label>
+                      </p>
+                      <div style="margin-left: 695px; margin-top: -35px; ">
+                        <button type="button" style=" border-style: none; background-color: white;margin-top: 10px;" onclick="deleteOtherOption(${defaultId})"
+                            id="delete-other-option-${defaultId}">
+                          <i class="fa-regular fa-circle-xmark"></i>
+                        </button>
+                      </div>
+                    </div>`;
+  
+    if (otherOptionDiv && otherOptionBtnDiv) {
+      otherOptionDiv.appendChild(div);
+      otherOptionBtnDiv.classList.toggle("getoff");
+    } else {
+      document.getElementById("another-option").appendChild(div);
+      document.getElementById(`another-option-btn`).classList.toggle("getoff");
+    }
+  }
+  
+  function deleteOtherOption(defaultId) {
+    var deleteOption = document.getElementById(`delete-other-option-${defaultId}`);
+    var otherOptionBtnDiv = document.getElementById(`another-option-btn-${defaultId}`);
+  
+    if (otherOptionBtnDiv) {
+      otherOptionBtnDiv.classList.toggle("getoff");
+    } else {
+      document.getElementById(`another-option-btn`).classList.toggle("getoff");
+    }
+    deleteOption.parentElement.parentElement.parentElement.remove();
   }

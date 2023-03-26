@@ -2,19 +2,19 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-html {
+  }
+  html {
     color: #333;
     font-size: 62.5%;
     font-family: 'Open Sans', sans-serif;
-}
-.main {
+  }
+  .main {
     background: #f1f1f1;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-}
-.form {
+  }
+  .form {
     width: 550px;
     min-height: 100px;
     padding: 32px 24px;
@@ -26,11 +26,11 @@ html {
     box-shadow: 0 2px 5px 0 rgba(51,62,73,.1);
     position: relative;
     margin-left: 550px;
-}
-.form .heading {
+  }
+  .form .heading {
     font-size: 1.5rem;
-}
-.form .desc {
+  }
+  .form .desc {
     text-align: center;
     color: #636d77;
     font-size: 1.3rem;
@@ -38,55 +38,55 @@ html {
     line-height: 2.4rem;
     margin-top: 6px;
     font-weight: 300;
-}
-
-.form-group {
+  }
+  
+  .form-group {
     display: flex;
     margin: 0 30px 5px 30px;
     flex-direction: column;
-}
-
-.form-label,
-.form-message {
+  }
+  
+  .form-label,
+  .form-message {
     text-align: left;
-}
-
-.form-label {
+  }
+  
+  .form-label {
     display: flex;
     font-weight: 700;
     padding-bottom: 6px;
     line-height: 1.8rem;
     font-size: 1.4rem;
-}
-
-.form-control {
+  }
+  
+  .form-control {
     height: 40px;
     padding: 8px 12px;
     border: 1px solid #b3b3b3;
     border-radius: 3px;
     outline: none;
     font-size: 1.4rem;
-}
-
-.form-control:hover {
+  }
+  
+  .form-control:hover {
     border-color: #1dbfaf;
-}
-
-.form-group.invalid .form-control {
+  }
+  
+  .form-group.invalid .form-control {
     border-color: #f33a58;
-}
-
-.form-group.invalid .form-message {
+  }
+  
+  .form-group.invalid .form-message {
     color: #f33a58;
-}
-
-.form-message {
+  }
+  
+  .form-message {
     font-size: 1.2rem;
     line-height: 1.6rem;
     padding: 4px 0 0;
-}
-
-.form-submit {
+  }
+  
+  .form-submit {
     outline: none;
     background-color: #0da9ed;
     margin-top: 12px;
@@ -98,47 +98,47 @@ html {
     font-size: 14px;
     border-radius: 20px;
     cursor: pointer;
-}
-
-.form-submit:hover {
+  }
+  
+  .form-submit:hover {
     background-color: #79a9f0;
-}
-
-.spacer {
+  }
+  
+  .spacer {
     margin-top: 36px;
-}
-
-.form-group p{
+  }
+  
+  .form-group p{
     color: red;
     font-size: 15px;
     margin-left: 3px;
-}
-
-.input-text{
+  }
+  
+  .input-text{
     visibility: visible;
-}
-
-.input-text.off{
+  }
+  
+  .input-text.off{
     visibility: hidden;
-}
-
-#another-option-btn.geton{
+  }
+  
+  #another-option-btn.geton{
     visibility: visible;
-}
-
-#another-option-btn.getoff{
+  }
+  
+  .getoff{
     visibility: hidden;
-}
-
-#survey-snackbar{
+  }
+  
+  #survey-snackbar{
     visibility: hidden;
-}
-
-#survey-snackbar.show{
+  }
+  
+  #survey-snackbar.show{
     visibility: visible;
-}
-
-#snackbar {
+  }
+  
+  #snackbar {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
@@ -152,137 +152,137 @@ html {
     left: 50%;
     bottom: 30px;
     font-size: 17px;
-}
-
-#snackbar.show {
+  }
+  
+  #snackbar.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-@-webkit-keyframes fadein {
+  }
+  
+  @-webkit-keyframes fadein {
     from {
         bottom: 0;
         opacity: 0;
     }
-
+  
     to {
         bottom: 30px;
         opacity: 1;
     }
-}
-
-@keyframes fadein {
+  }
+  
+  @keyframes fadein {
     from {
         bottom: 0;
         opacity: 0;
     }
-
+  
     to {
         bottom: 30px;
         opacity: 1;
     }
-}
-
-@-webkit-keyframes fadeout {
+  }
+  
+  @-webkit-keyframes fadeout {
     from {
         bottom: 30px;
         opacity: 1;
     }
-
+  
     to {
         bottom: 0;
         opacity: 0;
     }
-}
-
-@keyframes fadeout {
+  }
+  
+  @keyframes fadeout {
     from {
         bottom: 30px;
         opacity: 1;
     }
-
+  
     to {
         bottom: 0;
         opacity: 0;
     }
-}
-
-
-
-
-
-
-
-
-
-
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     
-
-h1{
+  
+  h1{
     font-weight: 300;
     line-height: 1.2;
-}
-p{
+  }
+  p{
     font-size: 1.125rem;
-}
-h1,p{
+  }
+  h1,p{
     margin-top: 0;
     margin-bottom: 0.5rem;
-}
-.survey-label{
+  }
+  .survey-label{
     padding-left: 9px;
     color: #636d77;
     display: flex;
     align-items: center;
     font-size: 1rem;
-}
-
-input,button,select,textarea{
+  }
+  
+  input,button,select,textarea{
     margin: 0;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-}
-.container{
+  }
+  .container{
     width: 100%;
     margin: 3.125rem auto 0 auto;
-}
-
-
-#description{
+  }
+  
+  
+  #description{
     font-style: italic;
     font-weight: 200;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
-
-}
-.clue{
+  
+  }
+  .clue{
     margin-left: 0.25rem;
     font-size: 0.9rem;
     color: #e4e4e4;
-}
-#quest{
+  }
+  #quest{
     color: #333;
     font-size: 1.7rem;
     padding-top: 8px;
     padding-left: 9px;
     margin-bottom: 0 !important;
-}
-form{
+  }
+  form{
     background: var(--color-darkblue-alpha);
     border-radius: 0.25rem;
-}
-
-@media (min-width: 480px){
+  }
+  
+  @media (min-width: 480px){
     form{
         padding: 2.5rem;
     }
-}
-.form-group1{
+  }
+  .form-group1{
     margin: 0 auto 1.25rem auto;
     padding: 0.25rem;
-}
-.formControl{
+  }
+  .formControl{
     display: block;
     width: 100%;
     height: 2.375rem;
@@ -293,30 +293,30 @@ form{
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
-}
-.formControl:focus{
+  }
+  .formControl:focus{
     border-color:blue;
     outline: 0;
     box-shadow:0 0 0 0.2rem rgba(0,123,255,0.25)
-}
-.inputRadio,
-.checkbox
-{
+  }
+  .inputRadio,
+  .checkbox
+  {
     display: inline-block;
     margin-right: 0.625rem;
     min-height: 1.25rem;
     min-width: 1.25rem;
-
-}
-.textarea{
+  
+  }
+  .textarea{
     width: 100%;
     padding: 0.75rem;
     font-size: 1.15rem;
     outline: none;
     border-color: blue;
     border-radius: 5px;
-}
-.btn{
+  }
+  .btn{
     display: block;
     width: 100%;
     padding:0.5rem 0.75rem;
@@ -329,35 +329,35 @@ form{
     font-size: 1.5rem;
     color: blue;
     border: none;
-}
-
-@media (min-width:576px){
+  }
+  
+  @media (min-width:576px){
     .container{
         max-width: 540px;
     }
-}
-@media (min-width:800px){
+  }
+  @media (min-width:800px){
     .container{
         max-width: 760px !important;
     }
-}
-
-#survey-form{
+  }
+  
+  #survey-form{
     background-color: white;
     border-radius: 8px;
-}
-
-#name-survey-form{
+  }
+  
+  #name-survey-form{
     background-color: white;
     border-radius: 8px;
     padding-bottom: 8px;
-}
-
-.inputRadio, .checkbox{
+  }
+  
+  .inputRadio, .checkbox{
     min-height: 1.5rem;
     min-width: 1.5rem;
-}
-.quest-num{
+  }
+  .quest-num{
     background-color: #6969db;
     text-align: center;
     margin-right: 600px;
@@ -365,40 +365,40 @@ form{
     margin-bottom: -5px;
     border-radius: 8px;
     height: 40px;
-}
-
-.logout-btn:hover{
+  }
+  
+  .logout-btn:hover{
     background-color: red;
-}
-
-.chose{
+  }
+  
+  .chose{
     height: 35px; 
     border-radius: 9px; 
     background-color: aqua; 
     margin-bottom: 5px;
-}
-.chose:focus{
+  }
+  .chose:focus{
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
-}
-
-.header{
+  }
+  
+  .header{
     background-color: #0dcaf0;
     overflow: hidden;
     width: 100%;
     position: fixed;
-}
-
-.nav-item{
+  }
+  
+  .nav-item{
     font-size: initial; 
-}
-
-.nav-link{
+  }
+  
+  .nav-link{
     color: #6c757d !important; 
-}
-
-.form-survey-submit{
+  }
+  
+  .form-survey-submit{
     background-color: #7b6bdb;
     padding: 12px 16px;
     font-weight: 600;
@@ -409,61 +409,61 @@ form{
     border-radius: 20px;
     margin-left: 250px;
     max-width: 200px;
-}
-
-.form-survey-submit:hover{
+  }
+  
+  .form-survey-submit:hover{
     background-color: #5187d8;
-}
-
-.add-question{
+  }
+  
+  .add-question{
     background-color: aqua;
     padding-bottom: 10px;
     padding-left: 5px;
     border-radius: 10px;
-}
-
-.name-question-input{
+  }
+  
+  .name-question-input{
     background-color: aqua; border-style: hidden; height: 80px; width: 695px; border-top-right-radius: 10px; padding-left: 10px;
-}
-
-.name-question-input::placeholder{
+  }
+  
+  .name-question-input::placeholder{
     font: 20px/3 sans-serif;
     text-align: center;
     color: black;
-}
-.name-question-input:focus{
+  }
+  .name-question-input:focus{
     outline: none;
-}
-
-.name-survey-input{
+  }
+  
+  .name-survey-input{
     height: 40px; width: 690px; background-color: aqua; border-style: hidden; border-radius: 10px; padding-left: 10px;
-}
-
-.name-survey-input::placeholder{
+  }
+  
+  .name-survey-input::placeholder{
     font: 20px/3 sans-serif;
     text-align: center;
     color: black;
-}
-
-.name-survey-input:focus{
+  }
+  
+  .name-survey-input:focus{
     outline: none;
-}
-
-.name-type-survey{
+  }
+  
+  .name-type-survey{
     height: 40px; width: 690px; background-color: aqua; border-style: hidden; border-radius: 10px; padding-left: 10px;
-}
-
-.name-type-survey::placeholder{
+  }
+  
+  .name-type-survey::placeholder{
     color: black;
     padding-left: 20px;
     font-weight: 600;
-}
-
-.name-type-survey:focus{
+  }
+  
+  .name-type-survey:focus{
     outline: none;
-}
-
-.add-option{
+  }
+  
+  .add-option{
     background-color: aqua; 
     border-style: hidden; 
     width: 690px;
@@ -471,35 +471,36 @@ form{
     border-bottom-right-radius: 9px;
     border-top-right-radius: 9px;
     word-wrap: break-word;
-}
-
-.add-option:focus{
+  }
+  
+  .add-option:focus{
     outline: none;
-}
-
-.add-option-btn{
+  }
+  
+  .add-option-btn{
     margin-left: 9px;
     margin-top: 7px;
     padding-top: 2px;
     border-style: hidden;
     background-color: white;
     display: flex;
-}
-
-#delete-current-option{
+  }
+  
+  #delete-current-option{
     height: 20px; width: 20px; border-style: hidden; background-color: white;
-}
-
-#add-question-btn{
+  }
+  
+  #add-question-btn{
     height: 35px; width: 35px; border-style: hidden; border-top-left-radius: 10px; border-top-right-radius: 10px;
-}
-
-#delete-question-btn{
+  }
+  
+  #delete-question-btn{
     height: 35px; width: 35px; border-style: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
-}
-
-#another-option-btn{
+  }
+  
+  #another-option-btn{
     margin-left: 4px;
     margin-top: 9px;
     text-decoration: none;
-}
+  }
+  
