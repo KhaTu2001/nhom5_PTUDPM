@@ -481,3 +481,11 @@ form{
 #delete-current-option{
     height: 20px; width: 20px; border-style: hidden; background-color: white;
 }
+
+#add-question-btn{
+    height: 35px; width: 35px; border-style: hidden; border-top-left-radius: 10px; border-top-right-radius: 10px;
+}
+
+#delete-question-btn{
+    height: 35px; width: 35px; border-style: hidden; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;
+}
