@@ -225,7 +225,7 @@ function Validator(options) {
                           </div>
                           <div class="spacer"></div>
                           <h4 style="padding-left: 5px;">Options</h4>
-                          <div class="chose">
+                          <div style="height: 35px;border-radius: 9px; background-color: aqua;margin-bottom: 5px;" class="chose-${defaultId}">
                             <p>
                               <label for="" class="survey-label">
                                 <input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text"
@@ -233,7 +233,7 @@ function Validator(options) {
                               </label>
                             </p>
                           </div>
-                          <div class="chose">
+                          <div style="height: 35px;border-radius: 9px; background-color: aqua;margin-bottom: 5px;" class="chose-${defaultId}">
                             <p>
                               <label for="" class="survey-label">
                                 <input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text"
@@ -243,12 +243,12 @@ function Validator(options) {
                           </div>
                           <div id="question-${defaultId}"></div>
                           <div id="another-option-${defaultId}"></div>
-                          <div class="d-flex">
+                          <div class="d-flex" id="add-option-click-${defaultId}">
                             <button type="button" class="add-option-btn" onclick="addMoreOption(${defaultId})"><i class="fa-regular fa-square-plus"
                                 style="font-size: initial;"></i>
                               <p style="padding-left: 2px;">Add other option</p>
                             </button>
-                            <a style="color: blue;margin-left: 4px;margin-top: 9px;text-decoration: none;" id="another-option-btn-${defaultId}" onclick="addAnotherOption(${defaultId})">or Lựa chọn khác</a>
+                            <a style="color: blue" id="another-option-btn" onclick="addAnotherOption(${defaultId})">Lựa chọn khác</a>
                           </div>
                         </div>
                       </form>
@@ -271,7 +271,7 @@ function Validator(options) {
     var questionDiv = document.getElementById(`question-${defaultId}`);
   
     div.setAttribute("class", `del-option`);
-    div.innerHTML = `<div class="chose">
+    div.innerHTML = `<div style="height: 35px;border-radius: 9px; background-color: aqua;margin-bottom: 5px;" class="chose-${defaultId}">
                       <p>
                         <label for="" class="survey-label">
                           <input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text"
@@ -302,19 +302,21 @@ function Validator(options) {
   function addAnotherOption(defaultId) {
     var div = document.createElement("div");
     var otherOptionDiv = document.getElementById(`another-option-${defaultId}`);
-    var otherOptionBtnDiv = document.getElementById(`another-option-btn-${defaultId}`);
+    var addOptionClickDiv = document.getElementById(`add-option-click-${defaultId}`);
+    var choseHaveDefaulIdDiv = document.getElementsByClassName(`chose-${defaultId}`);
+    var choseDiv = document.getElementsByClassName("chose");
   
     div.setAttribute("class", `del-option`);
-    div.innerHTML = `<div class="chose">
+    div.innerHTML = `<div style="height: 35px;border-radius: 9px; background-color: aqua;margin-bottom: 5px;" class="chose-other">
                       <p>
                         <label for="" class="survey-label">
                         <div style="display: flex;margin-left: 10px;">
-                          <input type="radio" name="source" class="inputRadio">
-                          <div style="color: #787878;">Khác...</div>
+                        <input class="add-option" type="text" style="margin-top: -10px;"
+                        placeholder="Khác...">
                         </div>
                         </label>
                       </p>
-                      <div style="margin-left: 695px; margin-top: -35px; ">
+                      <div style="margin-left: 695px; margin-top: -45px; ">
                         <button type="button" style=" border-style: none; background-color: white;margin-top: 10px;" onclick="deleteOtherOption(${defaultId})"
                             id="delete-other-option-${defaultId}">
                           <i class="fa-regular fa-circle-xmark"></i>
@@ -322,23 +324,53 @@ function Validator(options) {
                       </div>
                     </div>`;
   
-    if (otherOptionDiv && otherOptionBtnDiv) {
+    if (otherOptionDiv && addOptionClickDiv && choseHaveDefaulIdDiv) {
+      for (var i = 0; i < choseHaveDefaulIdDiv.length; i++) {
+        choseHaveDefaulIdDiv[i].classList.toggle("display-option");
+      }
+  
       otherOptionDiv.appendChild(div);
-      otherOptionBtnDiv.classList.toggle("getoff");
+      addOptionClickDiv.classList.toggle("getoff");
     } else {
+      for (var i = 0; i < choseDiv.length; i++) {
+        choseDiv[i].classList.toggle("display-option");
+      }
+  
+      if(choseHaveDefaulIdDiv) {
+        for (var i = 0; i < choseHaveDefaulIdDiv.length; i++) {
+          choseHaveDefaulIdDiv[i].classList.toggle("display-option");
+        }
+      }
+  
       document.getElementById("another-option").appendChild(div);
-      document.getElementById(`another-option-btn`).classList.toggle("getoff");
+      document.getElementById("add-option-click").classList.toggle("getoff");
     }
   }
   
   function deleteOtherOption(defaultId) {
     var deleteOption = document.getElementById(`delete-other-option-${defaultId}`);
-    var otherOptionBtnDiv = document.getElementById(`another-option-btn-${defaultId}`);
+    var addOptionClickDiv = document.getElementById(`add-option-click-${defaultId}`);
+    var choseHaveDefaulIdDiv = document.getElementsByClassName(`chose-${defaultId}`);
+    var choseDiv = document.getElementsByClassName("chose");
   
-    if (otherOptionBtnDiv) {
-      otherOptionBtnDiv.classList.toggle("getoff");
+    if (addOptionClickDiv && choseHaveDefaulIdDiv) {
+      for (var i = 0; i < choseHaveDefaulIdDiv.length; i++) {
+        choseHaveDefaulIdDiv[i].classList.toggle("display-option");
+      }
+  
+      addOptionClickDiv.classList.toggle("getoff");
     } else {
-      document.getElementById(`another-option-btn`).classList.toggle("getoff");
+      document.getElementById("add-option-click").classList.toggle("getoff");
+      
+      for (var i = 0; i < choseDiv.length; i++) {
+        choseDiv[i].classList.toggle("display-option");
+      }
+  
+      if(choseHaveDefaulIdDiv) {
+        for (var i = 0; i < choseHaveDefaulIdDiv.length; i++) {
+          choseHaveDefaulIdDiv[i].classList.toggle("display-option");
+        }
+      }
     }
     deleteOption.parentElement.parentElement.parentElement.remove();
   }
