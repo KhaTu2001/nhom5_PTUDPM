@@ -26,4 +26,7 @@ class Survey extends Model
     {
         return $this->belongsTo('App\Models\Form');
     }
+    public function answers(){
+        return $this->belongsToMany(Answer::class);
+    }
 }

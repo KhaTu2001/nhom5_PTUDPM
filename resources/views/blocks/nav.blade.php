@@ -8,7 +8,7 @@
             <div class="logout_btn">
                 <strong>
                     <a href="{{route('logout')}}">
-                        Log Out
+                        Đăng xuất
                     </a>
                 </strong>
             </div>

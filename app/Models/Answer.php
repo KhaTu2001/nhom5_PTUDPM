@@ -15,7 +15,5 @@ class Answer extends Model
     {
         return $this->belongsTo('App\Models\Question');
     }
-    public function answers() {
-        return $this->belongsToMany('App\Models\Survey', 'answer_survey', 'answer_id', 'survey_id');
-    }
+
 }

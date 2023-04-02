@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\SheetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,5 +33,8 @@ Route::prefix('users')->name('users.')->middleware(['auth'])->group(function () 
     Route::resource('form', FormController::class);
     #Survey
     Route::resource('survey', SurveyController::class);
-    
+    Route::get('survey/participant/{survey}', [SurveyController::class, 'participant'])->name('participant');
+    Route::get('survey/statistic/{survey}', [SurveyController::class, 'statistic'])->name('statistic');
+    #sheet
+    Route::resource('sheet', SheetController::class);
 });

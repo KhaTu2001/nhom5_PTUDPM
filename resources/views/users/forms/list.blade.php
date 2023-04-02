@@ -20,22 +20,32 @@
                 </form>
             </div>
             @if (count($forms) > 0)
-            <div class="container results_box">
-                <h2 class="txt_results-title">
-                    Khảo sát cần tìm
-                </h2>
+                <div class="container results_box">
+                    <h2 class="txt_results-title">
+                        Khảo sát cần tìm
+                    </h2>
                     @foreach ($forms as $form)
-                    <div class="col-xl-6 m-auto">
-                        <div class="results_content">
-                            <h4 class="txt_results_content">
-                                <a href="" style="text-decoration: none;">
-                                    {{$form->title}}
+                    <div class="row " style="display: flex; justify-content: center;">
+                        <div class="col-xl-6">
+                            <div class="results_content">
+                                <a href="#" class="txt_results_content">
+                                    <h3>{{ $form->title }}</h3>
+                                    <div class="row">
+                                        <div class="col-6 owner">
+                                            <h4>Người tạo</h4>
+                                            <h5>{{ $form->user->name }}</h5>
+                                        </div>
+                                        <div class="col-6 created_date">
+                                            <h4>Ngày tạo</h4>
+                                            <h5>{{ $form->open_at }}</h5>
+                                        </div>
+                                    </div>
                                 </a>
-                            </h4>
+                            </div>
                         </div>
                     </div>
-                    @endforeach
-            </div>
+                @endforeach
+                </div>
             @endif
         </div>
     </div>

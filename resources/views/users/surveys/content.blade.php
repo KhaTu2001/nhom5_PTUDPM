@@ -31,7 +31,8 @@
                         <div class="chose">
                             <p>
                                 <label for="" class="survey-label">
-                                    <input type="radio" name="source" class="inputRadio"> {{ $answer['content'] }}
+                                    <input type="radio" disabled name="source" class="inputRadio">
+                                    {{ $answer['content'] }}
                                 </label>
                             </p>
                         </div>
@@ -41,4 +42,25 @@
             </form>
         @endforeach
         <div class="spacer"></div>
-    @endsection
+    </div>
+    <div class="col-6 m-auto">
+        <div class="row">
+            <div class="row col-6">
+                <div class="col-12 d-flex">
+                    <a href="{{route('users.participant',$form->id)}}" class="col-6 statistic">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        Thống kê người tham gia
+                    </a>
+                    <a href="{{route('users.statistic',$form->id)}}" class="col-6 statistic">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        Thống kê câu trả lời
+                    </a>
+                </div>
+            </div>
+            <div class="col-6">
+                <button class="form-survey-submit">Xuất khảo sát</button>
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+@endsection

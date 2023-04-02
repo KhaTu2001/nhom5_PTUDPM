@@ -289,7 +289,7 @@
     
     
     #snackbar {
-        visibility: hidden;
+        /* visibility: hidden; */
         min-width: 250px;
         margin-left: -125px;
         background-color: #333;
@@ -392,27 +392,35 @@
         background-color: #000;
     }
     .statistics{
-        background-color: #F5F5F5;
+        background-color: #EBF0FF;
         min-height: 100vh;
     }
     .user_name{
         height: 32px;
         width: max-content;
     }
-    .email_adress{
+    .email_adress, .answer_content{
         height: 32px;
         width: max-content;
         border-radius: 40px;
         background-color: rgba(237, 210, 210, 1);
     
     }
-    .description{
+    .note, .answer_correct{
         height: 32px;
         width: max-content;
         border-radius: 40px;
+        color: #fff;
+        background-color: rgb(243, 160, 92);
+    }
+    .date, .answer_correct{
+        height: 32px;
+        width: max-content;
+        border-radius: 40px;
+        color: #fff;
         background-color: rgba(21, 108, 118, 1);
     }
-    .user_name, .email_adress, .description h4{
+    .user_name, .email_adress, .description, .answer_correct, .answer_content h4{
         padding: 4px 16px;
     }
     .row_detail_box{
@@ -511,8 +519,6 @@
         margin-top: 16px;
         border-radius: 16px;
     
-        
-        
     }
     .results_content a{
         color: rgba(244, 103, 0, 1);
@@ -529,23 +535,44 @@
     }
     
     .banner{
+        display: block;
         position: relative;
+    
     }
-    .banner img{
+    .banner .number_user-background{
         height: 100%;
         width: 80%;
         background-repeat: no-repeat;
         background-size: cover;
     }
     .box_content{
-    display: flex;
-    justify-content: center;
-    
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
     }
     .box_content img{
-        position: absolute;
         width: 126px;
         height: 126px;
-        z-index: 1000;
+    }
     
+    .statistical_bottom-right a, .statistical_bottom-left a{
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .number_user-box{
+        width: max-content;
+        height: max-content;
+        border-radius: 40px;
+        background-color: rgba(237, 210, 210, 1)  ;
+        margin-left: 32px;
+        
+    
+    }
+    .number_user-box h4{
+        padding: 16px;
     }

@@ -14,4 +14,8 @@ class FormController extends Controller
             'title' => 'Thêm khảo sát'
         ]);
     }
+    //tạo khảo sát
+    public function store(Request $request){
+        dd($request->all());
+    }
 }
