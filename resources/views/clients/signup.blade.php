@@ -2,7 +2,7 @@
 @section('title')
     {{ $title }}
 @endsection
-    <div class="sign-up">
+    <div class="sign-up" style="background-image: url(/img/bg.png); background-size: cover;">
         <div class="sign-up__container">
             <div class="sign-up-form mask d-flex h-100 gradient-custom-3">
                 <div class="container h-100">

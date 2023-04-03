@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ResetPassword;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
 use App\Http\Requests\SignupRequest;
@@ -34,10 +35,43 @@ class LoginController extends Controller
             return redirect()->route('users.index');
         } else return back()->with('msg','Tài khoản đăng nhập hoặc mật khẩu sai');
     }
-    //quên mật khẩu
+    //form quên mật khẩu
     public function forgotPassword(){
         return view ('clients.forgot-password')->with('title', 'Quên mật khẩu');
     }
+    //Gửi yêu cầu cấp lại mật khẩu
+    public function requestForgotPassword(Request $request){
+        $this->authService->requestForgotPassword($request);
+        return back()->with('msg', 'Vui lòng kiểm tra email để thực hiện đặt lại mật khẩu.');
+    }
+    /**
+     * Hiện form đặt lại mật khẩu
+     *
+     * @param $token
+     * @return \Illuminate\Http\Response
+     */
+    public function showResetPasswordForm($token)
+    {
+        $checkTokenExists = $this->authService->checkTokenExists($token);
+        return view('clients.reset-password', [
+            'token' => $token,
+            'check' => $checkTokenExists,
+            'title' => 'Đặt lại mật khẩu'
+        ]);
+    }
+
+    /**
+     * Đặt lại mật khẩu
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function submitResetPasswordForm(ResetPassword $request)
+    {
+        $this->authService->submitResetPasswordForm($request);
+        return redirect()->route('login')->with('message', 'Mật khẩu của bạn đã được thay đổi!');
+    }
+
     //Giao diện đăng kí
     public function signup(){
         return view('clients.signup')->with('title', 'Đăng kí tài khoản');

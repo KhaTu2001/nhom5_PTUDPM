@@ -5,7 +5,12 @@ namespace App\Services;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\Models\UserVerify;
+use App\Jobs\SendVerifyEmailJob;
+use App\Mail\ForgetPassword;
 class AuthService
 {
     // Xác thực người dùng
@@ -48,4 +53,42 @@ class AuthService
     public function create($data){
         return User::create($data);
     }
+    //Yêu cầu cấp lại mật khẩu
+    public function requestForgotPassword($request){
+        $request->validate([
+            'email' => 'required|email|exists:users',
+        ]);
+
+        $token = Str::random(32);
+
+        DB::table('password_resets')->insert([
+            'email' => $request->email,
+            'token' => $token,
+            'created_at' => Carbon::now()
+        ]);
+
+        SendVerifyEmailJob::dispatch($request->email, new ForgetPassword($token));
+    }
+    public function checkTokenExists($token)
+    {
+        return $check = DB::table('password_resets')->where('token', $token)->exists();
+    }
+
+    // Đặt lại mật khẩu
+    public function submitResetPasswordForm($request)
+    {
+        $request->validate([
+            'password' => 'required|string',
+        ]);
+
+        $resetPassword = DB::table('password_resets')
+            ->where('token', $request->token)
+            ->first();
+
+        User::where('email', $resetPassword->email)
+            ->update(['password' => Hash::make($request->password)]);
+
+        DB::table('password_resets')->where('email', $resetPassword->email)->delete();
+    }
+
 }
