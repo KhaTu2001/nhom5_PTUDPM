@@ -293,12 +293,12 @@ function Validator(options) {
     if (questionDiv) {                                                             // đếm số câu trả lời với mỗi form tạo thêm 
       questionDiv.appendChild(div);
       var optionCount = document.querySelectorAll(`.chose-${defaultId}`);
-      var count = optionCount.length;
+      count = optionCount.length;
       console.log(`optionForm-${defaultId + 1} = ${count}`)
     } else {                                                                         // đếm số câu trả lời với form mặc định
       document.getElementById(`more-option`).appendChild(div);
       var optionCount = document.querySelectorAll(`.chose-${defaultId}`);
-      var count = optionCount.length + 2;
+      count = optionCount.length + 2;
       console.log(count);
     }
     
@@ -362,6 +362,7 @@ function Validator(options) {
     }
     // var optionCount = document.querySelectorAll(`.chose-${defaultId}`);
     //   var count = optionCount.length;
+    let count = 0;
       console.log(`optionForm-${defaultId + 1} = ${count}`);
   }
   
@@ -391,4 +392,5 @@ function Validator(options) {
       }
     }
     deleteOption.parentElement.parentElement.parentElement.remove();
+    console.log(count);
   }
