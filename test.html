@@ -50,9 +50,9 @@
       </div>
     </form>
     <div class="spacer"></div>
-    <div>
+    <div id="original">
       <div class="quest-num">
-        <h3 style="color: white; padding-top: 10px;">Câu hỏi 1</h3>
+        <h3 style="color: white; padding-top: 10px;">Câu hỏi ${questionCount + 1}</h3>
       </div>
       <form action="" id="survey-form">
         <div id="form-option" class="form-group1">
@@ -71,7 +71,7 @@
           </div>
           <div class="spacer"></div>
           <h4 style="padding-left: 5px;">Options</h4>
-          <div class="chose">
+          <div id="option-row" style="height: 35px;border-radius: 9px; background-color: aqua;margin-bottom: 5px;" >
             <p>
               <label for="" class="survey-label">
                 <input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text"
@@ -79,7 +79,7 @@
               </label>
             </p>
           </div>
-          <div class="chose">
+          <div id="option-row" style="height: 35px;border-radius: 9px; background-color: aqua;margin-bottom: 5px;" >
             <p>
               <label for="" class="survey-label">
                 <input type="radio" name="source" class="inputRadio"> <input class="add-option" type="text"
@@ -87,17 +87,18 @@
               </label>
             </p>
           </div>
-          <div id="more-option"></div>
+          <div id="more-option" ></div>
           <div id="another-option"></div>
-          <div class="d-flex">
-            <button type="button" class="add-option-btn" onclick="addMoreOption()"><i class="fa-regular fa-square-plus"
+          <div class="d-flex" id='add-option-click'>
+            <button type="button" class="add-option-btn" onclick='addMoreOption({defaultId})'><i class="fa-regular fa-square-plus"
                 style="font-size: initial;"></i>
-              <p style="padding-left: 2px;">Add other option </p>
+              <p style="padding-left: 2px;">Add other option</p>
             </button>
-            <a style="color: blue" id="another-option-btn" onclick="addAnotherOption()">or Lựa chọn khác</a>
+            <a style="color: blue" id="another-option-btn" onclick='addAnotherOption({defaultId})'>Lựa chọn khác</a>
           </div>
         </div>
       </form>
+      <div class="spacer"></div>
     </div>
     <div id="more-question"></div>
   </div>

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<title>Clone Node Example</title>
+	<script type="text/javascript">
+		function cloneElement() {
+			var original = document.getElementById("original"); // Lấy phần tử cần sao chép
+			var clone = original.cloneNode(true); // Tạo bản sao của phần tử đó
+			document.body.appendChild(clone); // Thêm bản sao vào cuối trang
+		}
+	</script>
 </head>
 <body>
-    <a href="#" id="showLink" onclick="document.getElementById('hiddenLink').style.display='inline'; document.getElementById('showLink').style.display='none'; return false;">Show the hidden link</a>
+	<!-- Phần tử gốc cần sao chép -->
+	<div id="original">
+		<h2>Hello World!</h2>
+		<p>This is an example of using cloneNode() in JavaScript.</p>
+        <!-- Nút để kích hoạt việc sao chép -->
+	<button onclick="cloneElement()">Clone Element</button>
+	</div>
 
-<a href="#" id="hiddenLink" onclick="this.style.display='none';">Click here to hide the link</a>
+	
 </body>
 </html>

@@ -198,6 +198,9 @@ function Validator(options) {
   let questionCount = 1;
   let defaultId = 1;
   let deleteOptionId = 1;
+  let count = 0;
+  // let optionCount = 2;
+  // let currentOptionCount = 2;
   
   function addMoreQuestion() {
     var div = document.createElement("div");
@@ -269,6 +272,7 @@ function Validator(options) {
   function addMoreOption(defaultId) {
     var div = document.createElement("div");
     var questionDiv = document.getElementById(`question-${defaultId}`);
+    
   
     div.setAttribute("class", `del-option`);
     div.innerHTML = `<div style="height: 35px;border-radius: 9px; background-color: aqua;margin-bottom: 5px;" class="chose-${defaultId}">
@@ -288,15 +292,26 @@ function Validator(options) {
   
     if (questionDiv) {
       questionDiv.appendChild(div);
+      var optionCount = document.querySelectorAll(`.chose-${defaultId}`);
+      var count = optionCount.length;
+      console.log(`optionForm-${defaultId + 1} = ${count}`)
     } else {
       document.getElementById(`more-option`).appendChild(div);
+      var optionCount = document.querySelectorAll(`.chose-${defaultId}`);
+      var count = optionCount.length + 2;
+      console.log(count);
     }
+    
+    
     deleteOptionId++;
+    
   }
   
   function deleteCurrentOption(deleteOptionId) {
     var deleteOption = document.getElementById(`delete-current-option-${deleteOptionId}`);
     deleteOption.parentElement.parentElement.parentElement.remove();
+    // optionCount--;
+    // console.log(optionCount)
   }
   
   function addAnotherOption(defaultId) {
@@ -345,6 +360,9 @@ function Validator(options) {
       document.getElementById("another-option").appendChild(div);
       document.getElementById("add-option-click").classList.toggle("getoff");
     }
+    // var optionCount = document.querySelectorAll(`.chose-${defaultId}`);
+    //   var count = optionCount.length;
+      console.log(`optionForm-${defaultId + 1} = ${count}`);
   }
   
   function deleteOtherOption(defaultId) {
