@@ -290,12 +290,12 @@ function Validator(options) {
                       </div>
                     </div>`;
   
-    if (questionDiv) {
+    if (questionDiv) {                                                             // đếm số câu trả lời với mỗi form tạo thêm 
       questionDiv.appendChild(div);
       var optionCount = document.querySelectorAll(`.chose-${defaultId}`);
       var count = optionCount.length;
       console.log(`optionForm-${defaultId + 1} = ${count}`)
-    } else {
+    } else {                                                                         // đếm số câu trả lời với form mặc định
       document.getElementById(`more-option`).appendChild(div);
       var optionCount = document.querySelectorAll(`.chose-${defaultId}`);
       var count = optionCount.length + 2;
